@@ -4,8 +4,8 @@ Miscellaneous
 Source for the book
 -------------------
 The book and the source is available here_ under a
-Attribution-NonCommercial-ShareAlike 3.0 Unported license. See LICENSE
-file for the complete description.
+Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
+license. See LICENSE file for the complete description.
 
 .. _here: https://github.com/amitsaha/raspi-guide
 
