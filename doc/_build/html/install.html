@@ -1,0 +1,183 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installing Fedora Linux &mdash; Exploring the Raspberry Pi 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Exploring the Raspberry Pi 0.1 documentation" href="index.html" />
+    <link rel="next" title="Know your Raspberry Pi" href="system.html" />
+    <link rel="prev" title="Exploring the Raspberry Pi" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="system.html" title="Know your Raspberry Pi"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Exploring the Raspberry Pi"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Exploring the Raspberry Pi 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installing-fedora-linux">
+<h1>Installing Fedora Linux<a class="headerlink" href="#installing-fedora-linux" title="Permalink to this headline">¶</a></h1>
+<p>Installer:</p>
+<a class="reference internal image-reference" href="_images/fedora_pi1.png"><img alt="alternate text" src="_images/fedora_pi1.png" style="width: 824.0px; height: 379.0px;" /></a>
+<p>Downloading image:</p>
+<a class="reference internal image-reference" href="_images/fedora_pi2.png"><img alt="alternate text" src="_images/fedora_pi2.png" style="width: 824.0px; height: 379.0px;" /></a>
+<p>Write to the disk:</p>
+<a class="reference internal image-reference" href="_images/fedora_pi3.png"><img alt="alternate text" src="_images/fedora_pi3.png" style="width: 500.0px; height: 127.0px;" /></a>
+<p>Install complete:</p>
+<a class="reference internal image-reference" href="_images/fedora_pi4.png"><img alt="alternate text" src="_images/fedora_pi4.png" style="width: 740.0px; height: 272.0px;" /></a>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Root file system resize:</p>
+<a class="reference internal image-reference" href="_images/fedora_pi5.png"><img alt="alternate text" src="_images/fedora_pi5.png" style="width: 649.0px; height: 400.4px;" /></a>
+<p>Create user:</p>
+<a class="reference internal image-reference" href="_images/fedora_pi6.png"><img alt="alternate text" src="_images/fedora_pi6.png" style="width: 502.8px; height: 288.2px;" /></a>
+<p>Root user:</p>
+<a class="reference internal image-reference" href="_images/fedora_pi7.png"><img alt="alternate text" src="_images/fedora_pi7.png" style="width: 554.4px; height: 322.2px;" /></a>
+<p>System Settings:</p>
+<a class="reference internal image-reference" href="_images/fedora_pi8.png"><img alt="alternate text" src="_images/fedora_pi8.png" style="width: 531.4px; height: 312.4px;" /></a>
+<p>Login:</p>
+<a class="reference internal image-reference" href="_images/fedora_pi9.png"><img alt="alternate text" src="_images/fedora_pi9.png" style="width: 652.8px; height: 489.6px;" /></a>
+</div>
+<div class="section" id="setting-up-for-remote-access">
+<h2>Setting up for remote access<a class="headerlink" href="#setting-up-for-remote-access" title="Permalink to this headline">¶</a></h2>
+<p>SSH server should already be installed and started in your Fedora
+installation. To check:</p>
+<div class="highlight-python"><pre># service sshd status
+Redirecting to /bin/systemctl status  sshd.service
+sshd.service - OpenSSH server daemon
+          Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled)
+          Active: active (running) since Thu, 01 Nov 2012 12:06:23 +1000; 9h ago
+      Main PID: 223 (sshd)
+        CGroup: name=systemd:/system/sshd.service
+              └ 223 /usr/sbin/sshd -D</pre>
+</div>
+<p>and then:</p>
+<div class="highlight-python"><pre># ssh localhost
+root@localhost's password:
+Last login: Thu Nov  1 21:13:07 2012 from zion.gateway
+# who
+root     pts/0        2012-11-01 21:13 (zion.gateway)
+root     pts/3        2012-11-01 22:07 (localhost)</pre>
+</div>
+<p>We are setup for remote login now. So you may now disconnect the TV jack
+from your Raspberry Pi. The network cable must stay on.</p>
+</div>
+<div class="section" id="updating-and-adding-rpm-fusion">
+<h2>Updating and Adding RPM fusion<a class="headerlink" href="#updating-and-adding-rpm-fusion" title="Permalink to this headline">¶</a></h2>
+<p>Install RPMFusion repositories:</p>
+<div class="highlight-python"><pre># yum localinstall --nogpgcheck
+  http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+  http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm</pre>
+</div>
+<p>Update system:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># yum -y update</span>
+</pre></div>
+</div>
+<p>Kernel version:</p>
+<div class="highlight-python"><pre># uname -r
+3.2.27</pre>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installing Fedora Linux</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#setting-up-for-remote-access">Setting up for remote access</a></li>
+<li><a class="reference internal" href="#updating-and-adding-rpm-fusion">Updating and Adding RPM fusion</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Exploring the Raspberry Pi</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="system.html"
+                        title="next chapter">Know your Raspberry Pi</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/install.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="system.html" title="Know your Raspberry Pi"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Exploring the Raspberry Pi"
+             >previous</a> |</li>
+        <li><a href="index.html">Exploring the Raspberry Pi 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Amit Saha.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

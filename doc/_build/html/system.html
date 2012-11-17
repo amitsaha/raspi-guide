@@ -1,0 +1,188 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Know your Raspberry Pi &mdash; Exploring the Raspberry Pi 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Exploring the Raspberry Pi 0.1 documentation" href="index.html" />
+    <link rel="next" title="Programming" href="programming.html" />
+    <link rel="prev" title="Installing Fedora Linux" href="install.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="programming.html" title="Programming"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installing Fedora Linux"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Exploring the Raspberry Pi 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="know-your-raspberry-pi">
+<h1>Know your Raspberry Pi<a class="headerlink" href="#know-your-raspberry-pi" title="Permalink to this headline">¶</a></h1>
+<p>We shall use simple Linux commands to know more about the Raspberry Pi.</p>
+<div class="section" id="exploring-proc">
+<h2>Exploring /proc<a class="headerlink" href="#exploring-proc" title="Permalink to this headline">¶</a></h2>
+<p>The /proc file system is the place to look for all sorts of
+information. For example:</p>
+<div class="highlight-python"><pre># cat /proc/cpuinfo
+Processor       : ARMv6-compatible processor rev 7 (v6l)
+BogoMIPS        : 697.95
+Features        : swp half thumb fastmult vfp edsp java tls
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant     : 0x0
+CPU part        : 0xb76
+CPU revision    : 7
+
+Hardware        : BCM2708
+Revision        : 0003
+Serial          : 00000000f90cbb6b</pre>
+</div>
+<p>The output tells us that we are on a system with an ARM processor with a
+BogoMIPS of 697.95. Among the CPU features..</p>
+<p>You can obtain the information about the memory usage from the file
+/proc/meminfo:</p>
+<div class="highlight-python"><pre># cat /proc/meminfo
+MemTotal:         234968 kB
+MemFree:           56840 kB
+Buffers:           10380 kB
+Cached:           126004 kB
+..
+..</pre>
+</div>
+<p>Various other information about your system can be obtained such as:</p>
+<div class="highlight-python"><pre># cat /proc/sys/kernel/hostname
+raspberry
+# cat /proc/sys/kernel/ostype
+Linux
+# cat /proc/sys/kernel/osrelease
+3.2.27
+# cat /proc/sys/kernel/pid_max
+32768
+# cat /proc/sys/kernel/poweroff_cmd
+/sbin/poweroff</pre>
+</div>
+</div>
+<div class="section" id="mount-points-and-mounting-disks">
+<h2>Mount points and mounting disks<a class="headerlink" href="#mount-points-and-mounting-disks" title="Permalink to this headline">¶</a></h2>
+<p>The df and mount commands can be used to obtain information about the
+secondary storage disks attached to your Raspberry Pi:</p>
+<div class="highlight-python"><pre># df -h
+Filesystem      Size  Used Avail Use% Mounted on
+rootfs          3.7G  2.1G  1.4G  61% /
+/dev/root       3.7G  2.1G  1.4G  61% /
+devtmpfs        115M     0  115M   0% /dev
+tmpfs           115M     0  115M   0% /dev/shm
+tmpfs           115M  1.1M  114M   1% /run
+tmpfs           115M     0  115M   0% /sys/fs/cgroup
+tmpfs           115M     0  115M   0% /media
+/dev/mmcblk0p1   51M   16M   36M  31% /boot
+
+# mount
+/dev/root on / type ext4 (rw,noatime,user_xattr,barrier=1,data=ordered)
+devtmpfs on /dev type devtmpfs (rw,relatime,size=117396k,nr_inodes=29349,mode=755)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+..
+..</pre>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Know your Raspberry Pi</a><ul>
+<li><a class="reference internal" href="#exploring-proc">Exploring /proc</a></li>
+<li><a class="reference internal" href="#mount-points-and-mounting-disks">Mount points and mounting disks</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="install.html"
+                        title="previous chapter">Installing Fedora Linux</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="programming.html"
+                        title="next chapter">Programming</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/system.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="programming.html" title="Programming"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installing Fedora Linux"
+             >previous</a> |</li>
+        <li><a href="index.html">Exploring the Raspberry Pi 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Amit Saha.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
