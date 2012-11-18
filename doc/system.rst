@@ -50,6 +50,17 @@ Various other information about your system can be obtained such as::
     # cat /proc/sys/kernel/poweroff_cmd 
     /sbin/poweroff
 
+USB Devices
+-----------
+Explore the USB devices::
+
+    # lsusb -t
+
+    /:  Bus 01.Port 1: Dev 1, Class=root_hub, Driver=dwc_otg/1p, 480M
+        |__ Port 1: Dev 2, If 0, Class=hub, Driver=hub/3p, 480M
+            |__ Port 1: Dev 3, If 0, Class=vend., Driver=smsc95xx, 480M
+
+
 
 Mount points and mounting disks 
 --------------------------------
