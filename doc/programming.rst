@@ -174,7 +174,31 @@ Install zdaemon ::
    # pip-python install zdaemon
 
 
+CouchDB
+-------
+
+Install couchdb and couchdb library for Python ::
+
+    # yum -y install couchdb
+
+    # pip-python install couchdb
+
+Start Couchdb ::
+
+    #service couchdb start
+
+Create a simple database and store data ::
+
+        >>> import couchdb
+	>>> couch = couchdb.Server('http://127.0.0.1:5984/')
+	>>> db = couch.create('test')
+	>>> doc={'name':'raspi'}
+	>>> db.save(doc)
+	('2a94bdde4f092c50be2ec8ab68000baa', '1-07a810f328653abedf230bb8321d3d4c')
+	>>> doc
+	{'_rev': '1-07a810f328653abedf230bb8321d3d4c', '_id': '2a94bdde4f092c50be2ec8ab68000baa', 'name': 'raspi'}
+	>>> db['2a94bdde4f092c50be2ec8ab68000baa']
+	<Document '2a94bdde4f092c50be2ec8ab68000baa'@'1-07a810f328653abedf230bb8321d3d4c' {'name': 'raspi'}>
+
 Web applications - Flask and Sinatra
 ------------------------------------
-
-
