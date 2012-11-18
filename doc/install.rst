@@ -1,6 +1,10 @@
 Installing Fedora Linux
 =======================
 
+Start from here_.
+
+.. _here: zenit.senecac.on.ca/wiki/index.php/Raspberry_Pi_Fedora_Remix
+
 Installer:
 
 .. image:: _static/images/fedora_pi1.png
