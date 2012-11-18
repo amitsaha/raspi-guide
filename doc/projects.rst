@@ -1,5 +1,5 @@
-Half-baked Projects
-===================
+Half-baked Projects with Full Potential
+=======================================
 
 Fedora Infrastructure Bus Scraper
 ---------------------------------
