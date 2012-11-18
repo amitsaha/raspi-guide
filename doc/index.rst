@@ -6,8 +6,6 @@
 Exploring the Raspberry Pi
 ==========================
 
-Contents:
-
 .. toctree::
    :maxdepth: 2
  
@@ -16,6 +14,7 @@ Contents:
    programming
    projects
    whatnext
+   closing
    
    
 
