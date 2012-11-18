@@ -8,15 +8,14 @@ Exploring the Raspberry Pi with Fedora Linux
 
 You have been using Linux on your big computers so far and want a light
 reading about exploring the Raspberry Pi? Or, you are just learning
-Linux with the Raspberry Pi?  
+Linux with the Raspberry Pi? Hop on. This guide is for you. 
 
-Hop on. This guide is for you. Remeber this guide is under construction
-in every way.
-
-This guide is aimed at wannabe power users of the Raspberry Pi. You
+However, this guide is aimed at wannabe power users of the Raspberry Pi. You
 won't even see the window manager or the GUI if you follow this guide. All work is
 performed on the Pi in a headless manner - you ssh into your Pi. If that
 puts you off, you are better off fetching any of the other guides. 
+
+Let's get started.
 
 .. toctree::
    :maxdepth: 2
@@ -29,3 +28,4 @@ puts you off, you are better off fetching any of the other guides.
    closing
 
 
+Very much a work under construction. Comments/suggestions welcome.
