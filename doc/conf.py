@@ -164,7 +164,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'ExploringtheRaspberryPidoc'
+htmlhelp_basename = 'ExploringtheRaspberryPi'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -227,7 +227,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'ExploringtheRaspberryPi', u'Exploring the Raspberry Pi Documentation',
+  ('index', 'ExploringtheRaspberryPi', u'Exploring the Raspberry Pi',
    u'Amit Saha', 'ExploringtheRaspberryPi', 'One line description of project.',
    'Miscellaneous'),
 ]
