@@ -208,29 +208,22 @@ Start Couchdb ::
 
 Create a simple database and store data ::
 
-        >>> import couchdb
-	>>> couch = couchdb.Server('http://127.0.0.1:5984/')
-	>>> db = couch.create('test')
-	>>> doc={'name':'raspi'}
-	>>> db.save(doc)
-	('2a94bdde4f092c50be2ec8ab68000baa', '1-07a810f328653abedf230bb8321d3d4c')
-	>>> doc
-	{'_rev': '1-07a810f328653abedf230bb8321d3d4c', '_id': '2a94bdde4f092c50be2ec8ab68000baa', 'name': 'raspi'}
-	>>> db['2a94bdde4f092c50be2ec8ab68000baa']
-	<Document '2a94bdde4f092c50be2ec8ab68000baa'@'1-07a810f328653abedf230bb8321d3d4c' {'name': 'raspi'}>
+    >>> import couchdb
+    >>> couch = couchdb.Server('http://127.0.0.1:5984/')
+    >>> db = couch.create('test')
+    >>> doc={'name':'raspi'}
+    >>> db.save(doc)
+    ('2a94bdde4f092c50be2ec8ab68000baa', '1-07a810f328653abedf230bb8321d3d4c')
+    >>> doc
+    {'_rev': '1-07a810f328653abedf230bb8321d3d4c', '_id': '2a94bdde4f092c50be2ec8ab68000baa', 'name': 'raspi'}
+    >>> db['2a94bdde4f092c50be2ec8ab68000baa']
+    <Document '2a94bdde4f092c50be2ec8ab68000baa'@'1-07a810f328653abedf230bb8321d3d4c' {'name': 'raspi'}>
 
-Web applications 
------------------
-
-Flask
-=====
+Web applications: Flask and Sinatra
+-----------------------------------
 
 Flask can be used to create web applications on your Pi. Its simple,
 lightweight and really easy to get started. The pylinux package we saw
 earlier includes a Flask web application which uses the package to
 display system statistics. It also uses jQuery and smoothie.js to
 display dynamic data.
-
-
-Sinatra
-======= 
