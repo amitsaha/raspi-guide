@@ -61,6 +61,7 @@ Getting to know your system using some of the standard library modules ::
     >>> sys.byteorder
     'little
 
+
 Use the subprocess module to access Linux commands ::
 
     >>> import subprocess
@@ -100,6 +101,25 @@ Use the subprocess module to access Linux commands ::
     TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
     0
 
+The pylinux_ package aims to provide a Python interface to the most
+common system information on a Linuxs system. Install it by cloning it
+from the project website and using the setup.py script to install the
+package:: 
+
+    # git clone https://github.com/amitsaha/pylinux.git
+    # python setup.py install
+
+You can then use it, like so::
+
+    >>> import pylinux.pylinux as pylinux
+    >>> pylinux.distro_name()
+    'Fedora remix'
+    >>> pylinux.arch()
+    'armv6l'
+    >>> pylinux.freemem()
+    '44356 kB'
+
+.. _pylinux: https://github.com/amitsaha/pylinux.git
 
 Install pip ::
 
@@ -160,8 +180,7 @@ We can use Kernel's system method to execute external Linux commands and get use
 
     => true
 
-
-Fedora 17 also comes with gem installed ::
+Fedora 17 comes with gem installed ::
 
     # gem --version
     1.8.24
@@ -200,5 +219,18 @@ Create a simple database and store data ::
 	>>> db['2a94bdde4f092c50be2ec8ab68000baa']
 	<Document '2a94bdde4f092c50be2ec8ab68000baa'@'1-07a810f328653abedf230bb8321d3d4c' {'name': 'raspi'}>
 
-Web applications - Flask and Sinatra
-------------------------------------
+Web applications 
+-----------------
+
+Flask
+=====
+
+Flask can be used to create web applications on your Pi. Its simple,
+lightweight and really easy to get started. The pylinux package we saw
+earlier includes a Flask web application which uses the package to
+display system statistics. It also uses jQuery and smoothie.js to
+display dynamic data.
+
+
+Sinatra
+======= 
