@@ -126,7 +126,7 @@ Install pip ::
     # yum -y install python-pip
 
 Web application using Flask
---------------------------
+---------------------------
 
 Flask can be used to create web applications on your Pi. Its simple,
 lightweight and really easy to get started. 
@@ -162,11 +162,11 @@ You should see the following message ::
 
 Now, if you visit the URL http://raspi-ip:5000 from your browser, you will see the
 following page (where raspi-ip is the IP address of your Raspberry Pi
-which you can find out as we saw earlier) :: 
+which you can find out as we saw earlier)
 
-    .. image:: _static/images/flask_demo.png
-    :scale: 100
-    :alt: alternate text
+.. image:: _static/images/flask_demo.png
+   :scale: 100
+   :alt: alternate text
 
 The @app.route("/") indicates that this is the function which will be
 called when you visit the URL: http://raspi-ip:5000. You could write
