@@ -393,4 +393,8 @@ Run the program as follows ::
 
 Depending on the decimal integer you enter, you will see none, one or
 both the LEDs glowing. You can also increase the number of LEDs and
-update the variable, pins accordingly to increase the range of decimal input.
+update the list of pins accordingly to increase the range of decimal
+input.
+
+You could also consider writing a web application using Flask to control
+your LEDs via HTTP.
