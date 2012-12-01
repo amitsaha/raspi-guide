@@ -200,6 +200,11 @@ hours. Run the web application and you will see that when you visit the
 URL: http://raspi-ip:5000/uptime in your browser, you will get back the
 uptime for your Raspberry Pi.
 
+.. image:: _static/images/flask_demo2.png
+   :scale: 80
+   :alt: alternate text
+
+
 The pylinux package includes a Flask web application which uses the package to
 display system statistics. It also uses jQuery and smoothie.js to
 display dynamic data. It can be found in the examples/flask_app directory.
