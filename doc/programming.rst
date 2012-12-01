@@ -125,6 +125,85 @@ Install pip ::
 
     # yum -y install python-pip
 
+Web applicatio using Flask
+--------------------------
+
+Flask can be used to create web applications on your Pi. Its simple,
+lightweight and really easy to get started. 
+
+Install Flask using ::
+
+    #yum -y install python-flask
+
+Let us now write an example web application using Flask. Create a file
+app.py with the following contents ::
+
+    from flask import Flask
+
+    app = Flask(__name__)
+
+    @app.route("/")
+    def index():
+
+        return ''' <center><h1> Flask on Raspberry Pi </h1></center> \n                                                                   
+               Time now ''' + time.ctime()
+
+    if __name__ == "__main__":
+        app.run(host='0.0.0.0',debug=True)
+
+Now start the web application using::
+
+    # python  app.py
+
+You should see the following message ::
+
+    * Running on http://0.0.0.0:5000/
+    * Restarting with reloader
+
+Now, if you visit the URL http://raspi-ip:5000 from your browser, you will see the
+following page (where raspi-ip is the IP address of your Raspberry Pi
+which you can find out as we saw earlier) :: 
+
+    .. image:: _static/images/flask_demo.png
+    :scale: 100
+    :alt: alternate text
+
+The @app.route("/") indicates that this is the function which will be
+called when you visit the URL: http://raspi-ip:5000. You could write
+your web application such that when you visit the URL:
+http://raspi-ip:5000/uptime, it gives you the time for which your
+Raspberry Pi has been switched on. Rewrite the app.py file as ::
+ 
+    import pylinux.pylinux as pylinux
+
+    from flask import Flask
+    import time
+
+    app = Flask(__name__)
+
+    @app.route("/uptime")
+    def uptime():
+        return 'Raspberry Pi up for %s hours' % str(pylinux.uptime())
+
+    @app.route("/")
+    def index():
+
+        return ''' <center><h1> Flask on Raspberry Pi </h1></center> \n                                                                   
+                   Time now ''' + time.ctime()
+
+    if __name__ == "__main__":
+        app.run(host='0.0.0.0',debug=True)
+
+
+As you can see, we use the pylinux package to get the uptime in
+hours. Run the web application and you will see that when you visit the
+URL: http://raspi-ip:5000/uptime in your browser, you will get back the
+uptime for your Raspberry Pi.
+
+The pylinux package includes a Flask web application which uses the package to
+display system statistics. It also uses jQuery and smoothie.js to
+display dynamic data. It can be found in the examples/flask_app directory.
+
 Ruby
 ----
 
@@ -186,12 +265,8 @@ Fedora 17 comes with gem installed ::
     1.8.24
 
 
-Daemonizing applications
-------------------------
-Install zdaemon ::
-
-   # pip-python install zdaemon
-
+Web application using Sinatra
+-----------------------------
 
 CouchDB
 -------
@@ -204,7 +279,7 @@ Install couchdb and couchdb library for Python ::
 
 Start Couchdb ::
 
-    #service couchdb start
+    # service couchdb start
 
 Create a simple database and store data ::
 
@@ -219,11 +294,10 @@ Create a simple database and store data ::
     >>> db['2a94bdde4f092c50be2ec8ab68000baa']
     <Document '2a94bdde4f092c50be2ec8ab68000baa'@'1-07a810f328653abedf230bb8321d3d4c' {'name': 'raspi'}>
 
-Web applications: Flask and Sinatra
------------------------------------
 
-Flask can be used to create web applications on your Pi. Its simple,
-lightweight and really easy to get started. The pylinux package we saw
-earlier includes a Flask web application which uses the package to
-display system statistics. It also uses jQuery and smoothie.js to
-display dynamic data.
+Daemonizing applications
+------------------------
+Install zdaemon ::
+
+   # pip-python install zdaemon
+
