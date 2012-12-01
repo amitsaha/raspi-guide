@@ -165,7 +165,7 @@ following page (where raspi-ip is the IP address of your Raspberry Pi
 which you can find out as we saw earlier)
 
 .. image:: _static/images/flask_demo.png
-   :scale: 100
+   :scale: 60
    :alt: alternate text
 
 The @app.route("/") indicates that this is the function which will be
