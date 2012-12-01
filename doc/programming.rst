@@ -125,7 +125,7 @@ Install pip ::
 
     # yum -y install python-pip
 
-Web applicatio using Flask
+Web application using Flask
 --------------------------
 
 Flask can be used to create web applications on your Pi. Its simple,
@@ -301,3 +301,96 @@ Install zdaemon ::
 
    # pip-python install zdaemon
 
+GPIO Pins
+---------
+
+The command line utility gpio can be used to acces the GPIO pins on the
+Raspberry Pi. This command is provided by the wiringpi package which is
+already installed on Fedora ::
+
+    # rpm -q wiringpi
+    wiringpi-1-4.rpfr17.armv5tel
+
+To get the basic idea of accessing the GPIO pins using gpio, setup a
+simple LED circuit. Connect the anode of the LED to the GPIO pin 18 (pin
+12 in real life) and the cathode to the Ground pin (6 in real life) via
+a resistor. The LED will not glow. We will now use gpio utlity to switch
+on the LED ::
+
+    # gpio -g mode 18 out
+    # gpio -g write 18 1
+
+The LED should now be switched on. You can switch it off using ::
+
+    # gpio -g write 18 0
+
+
+Next, we switch to Python for GPIO control using the RPI.GPIO package
+(http://pypi.python.org/pypi/RPi.GPIO). Install gcc and python-devel
+packages first and then install it using pip-python ::
+
+    # yum -y install gcc python-devel
+    # pip-python install RPi.GPIO
+
+
+Use RPI.GPIO to switch on/off the LED ::
+
+    >>> import RPi.GPIO as GPIO
+    >>> GPIO.setmode(GPIO.BCM)
+    >>> GPIO.setup(18, GPIO.OUT)
+    >>> GPIO.output(18, GPIO.HIGH)
+    >>> GPIO.output(18, GPIO.LOW)
+    >>> GPIO.output(18, GPIO.HIGH)
+
+
+Now, connect another LED such that its anode is connected to GPIO pin 23
+(pin 14 in real life). Now that we have two LEDs with each capable of
+being in an ON or an OFF state, we can use them to display numbers (upto
+3 in decimal) as their binary equivalent::
+
+   import sys
+   import RPi.GPIO as GPIO
+
+   # GPIO pins 
+   pins = [18,23]
+
+   def setup_gpio():
+
+       GPIO.setwarnings(False)
+       GPIO.setmode(GPIO.BCM)
+       for pin in pins:
+           GPIO.setup(pin, GPIO.OUT)
+           GPIO.output(pin, GPIO.LOW)
+
+   if __name__=='__main__':
+
+       if len(sys.argv) == 1:
+          print 'Usage: dec2bin_led.py <decimal integer>'
+          sys.exit()
+
+       dec = int(sys.argv[1])
+       if dec < 0 or dec > 2**len(pins)-1:
+           print 'Please enter a decimal integer between 0 and %s (both inclusive)' \
+                % str(2**len(pins)-1)
+           sys.exit()
+
+       binary = bin(dec).lstrip('0b')
+
+       setup_gpio()
+
+       for i,bit in enumerate(binary):
+            if bit=='1':
+                GPIO.output(pins[i], GPIO.HIGH)
+            else:
+                GPIO.output(pins[i], GPIO.LOW)
+
+Run the program as follows ::
+
+    # python dec2bin_led.py 1
+    # python dec2bin_led.py 3
+    # python dec2bin_led.py 10
+      Please enter a decimal integer between 0 and 3 (both inclusive)
+
+Depending on the decimal integer you enter, you will see none, one or
+both the LEDs glowing. You can also increase the number of LEDs and
+update the variable, pins accordingly to increase the range of decimal input.
