@@ -2,7 +2,7 @@ Get started with the Raspberry Pi
 =================================
 
 By now, you have probably heard of the Raspberry Pi. It is a credit card
-sized inexpensive computer which you is almost as powerful as your
+sized inexpensive computer which is almost as powerful as your 
 desktop computer 10 years ago. If you have been programming for a while,
 you know that's not bad at all. This is how a Raspberry Pi looks like:
 
