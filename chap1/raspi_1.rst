@@ -516,8 +516,8 @@ Next
 
 Okay, so we have a Raspberry Pi running Fedora 18 remix and we can
 either work on it from the GUI (XFCE desktop) or by logging into it
-remotely using `ssh`. In the next part of this series of articles, we
-will explore some interesting things you could do with the Pi.
+remotely using `ssh`. In the next chapter, we will explore some interesting things
+you can do with the Pi.
 
 Power off the Pi using ::
 
