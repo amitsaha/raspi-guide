@@ -41,7 +41,7 @@ to power the device off.
 
 See http://500px.com/amitsaha/sets/raspberry_pi for more images of the Raspberry Pi.
 
-For the rest of this article, and later ones I will refer to the
+For the rest of this chapter, and later ones I will refer to the
 Raspberry Pi as Pi. Before we can start the Pi, we will have to install an operating system
 on the SD card. The SD card should be atleast 4 GB in size (out of which
 about 3.1 GB is occupied by the Fedora operating system, leaving you
@@ -54,9 +54,8 @@ Software for the Hardware: Fedora Remix on the Pi
 
 A number of choices are available when you want to select an operating
 system for the Pi. Raspbian, Arch Linux, Fedora and RISC OS can all be
-run on the Pi. For the purpose of this article series, we use the Fedora
-18 remix, mainly because of personal preference. If you are a Fedora
-user, you should have no hassles in following the articles. If you are
+run on the Pi. For the purpose of this book, we use the Fedora
+18 remix, mainly because of personal preference. If you are
 an user of another distro, the Fedora specific bits would be mostly
 the software installation commands. Let's get started.
 
@@ -65,7 +64,7 @@ http://scotland.proximity.on.ca/arm-nightlies/vault/f18-alpha-rpi-remix/
 on another computer (I am assuming that you are using Linux).
 As of this writing, Beta 2 is the latest release - the image file named
 rpfr-f18-beta-2.zip. A later image may be available when you read this
-article and you may use that instead. Extract this file to retrieve the
+chapter and you may use that instead. Extract this file to retrieve the
 image ::
 
    $ unzip rpfr-f18-beta-2.zip 
@@ -216,7 +215,7 @@ the familiar XFCE desktop running on your Pi.
 
 You will notice that a number of programs such as a text editor are
 missing. We will simply use the `vi` editor from the terminal for any text editing tasks
-in this article. 
+in this chapter.
 
 
 Setting up Wired Networking
@@ -271,7 +270,7 @@ all we have the right time ::
     Wed Dec 19 07:20:22 EST 2012
  
 That may seem to be right time, since its just a month or so back. But,
-actually it isn't. I am writing this article in 2013. Seems like NTP is
+actually it isn't. I am writing this in 2013. Seems like NTP is
 not working as it should because the NTP daemon is not
 installed. Install it using ::
 
@@ -304,9 +303,8 @@ SSH server is installed and running ::
 As you can see, the SSH server is running and ready for accepting
 connections. Now, if you wish to you may unplug the TV or monitor(not before you
 have noted the IP address that it has been assigned) and continue
-using your Pi (and follow this article) by logging into your Pi using:
-`ssh user@<ip address of pi>` from another computer on your local
-network. You may of course continue exploring and following this article from the
+using your Pi by logging into your Pi using: `ssh user@<ip address of pi>` from another computer on your local
+network. You may of course continue exploring and reading the rest of this chapter using the
 XFCE desktop.
 
 
@@ -358,7 +356,7 @@ Let's now explore the processor details::
     Revision        : 000f
     Serial          : 00000000e46466d1
 
-Like I mentioned in the beginning of this article, the Pi has a Broadcom
+Like I mentioned in the beginning of this chapter, the Pi has a Broadcom
 BCM2835 System-on-a-chipthe (which houses the an ARM processor, a GPU
 core, a DSP core and the SDRAM). The BCM2835 chip specification can be seen in the
 above output.
@@ -409,7 +407,7 @@ shared graphics memory may be a good idea. On the other hand, if you
 intend to use the desktop, keeping the default 64 MB shared memory (or
 even increasing it to 128 MB) may result in better desktop
 experience. We will learn how you can configure the shared memory value
-in a later part of this article.
+in a later part of this chapter.
 
 The Linux distribution details and the Kernel version can be obtained
 using ::
